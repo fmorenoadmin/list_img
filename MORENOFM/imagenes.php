@@ -32,7 +32,7 @@
 		}
 		function cuerpo($c1){
 			$inf='';$n=1;
-			$sql="SELECT * FROM ".$this->table." WHERE status=1 ;";
+			$sql="SELECT i.id_c, i.nombre, i.url FROM ".$this->table." i INNER JOIN ".$this->table2." c ON i.id_c=c.id_c WHERE i.status=1 AND c.status=1 ;";
 			$res = mysqli_query($c1,$sql) OR $_SESSION['Mysqli_Error'] = (mysqli_error($c1));
 			if ($res) {
 				if ($res->num_rows > 0) {
